@@ -87,7 +87,7 @@
     main {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 4rem 1.5rem;
+      padding: 2rem 1.5rem;
     }
 
     .hero {
@@ -96,6 +96,31 @@
       gap: 4rem;
       align-items: center;
       margin-bottom: 6rem;
+      background-image: url('header-bg.svg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 4rem;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 58, 42, 0.7);
+      z-index: 1;
+    }
+
+    .hero-text,
+    .hero-logo {
+      position: relative;
+      z-index: 2;
     }
 
     .hero-text h2 {
@@ -247,6 +272,7 @@
       .hero {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 2rem;
       }
 
       .hero-text h1 {
