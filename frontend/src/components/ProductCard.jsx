@@ -10,34 +10,10 @@ const colors = {
 };
 
 export default function ProductCard({ product, onAddToCart, user, onFavoriteToggle }) {
-  const [isFavorited, setIsFavorited] = useState(
-    user?.favorites?.some(fav => fav.id === product.id) || false
-  );
-  const [loadingFavorite, setLoadingFavorite] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
 
-  const handleFavoriteClick = async () => {
-    if (!user) {
-      alert('Bitte logge dich ein, um Favoriten zu speichern!');
-      return;
-    }
-
-    setLoadingFavorite(true);
-    try {
-      const token = localStorage.getItem('token');
-      const response = await fetch(`http://localhost:3001/api/auth/favorites/${product.id}`, {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
-
-      if (response.ok) {
-        setIsFavorited(!isFavorited);
-        onFavoriteToggle?.();
-      }
-    } catch (err) {
-      console.error('Fehler beim Favorit-Toggle:', err);
-    } finally {
-      setLoadingFavorite(false);
-    }
+  const handleFavoriteClick = () => {
+    setIsFavorited(!isFavorited);
   };
   return (
     <Card>
@@ -61,7 +37,6 @@ export default function ProductCard({ product, onAddToCart, user, onFavoriteTogg
         {/* Favoriten Button */}
         <button
           onClick={handleFavoriteClick}
-          disabled={loadingFavorite}
           style={{
             position: 'absolute',
             top: '0.75rem',
@@ -69,12 +44,11 @@ export default function ProductCard({ product, onAddToCart, user, onFavoriteTogg
             background: 'none',
             border: 'none',
             fontSize: '1.75rem',
-            cursor: loadingFavorite ? 'not-allowed' : 'pointer',
-            opacity: loadingFavorite ? 0.6 : 1,
+            cursor: 'pointer',
             transition: 'all 0.2s',
           }}
-          onMouseEnter={(e) => !loadingFavorite && (e.currentTarget.style.transform = 'scale(1.2)')}
-          onMouseLeave={(e) => !loadingFavorite && (e.currentTarget.style.transform = 'scale(1)')}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.2)')}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           title={isFavorited ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
         >
           {isFavorited ? '❤️' : '🤍'}
