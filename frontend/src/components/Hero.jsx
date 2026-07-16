@@ -115,7 +115,7 @@ export default function Hero({ onShopClick }) {
               alignItems: 'center'
             }}>
               <img
-                src="/logo.png"
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Husky Logo"
                 style={{ width: '200px', height: '200px', objectFit: 'contain', marginBottom: '1rem' }}
               />

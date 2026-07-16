@@ -57,7 +57,7 @@ export default function Header({ cartCount, onNavigate, currentPage, onLogoClick
               onMouseLeave={(e) => e.currentTarget.style.opacity = '0.9'}
             >
               <img
-                src="/logo.png"
+                src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Enny's Logo"
                 style={{ width: '48px', height: '48px', objectFit: 'contain' }}
               />
