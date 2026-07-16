@@ -16,8 +16,170 @@
       background-color: #1a3a2a;
       color: #D9CCBA;
     }
+
+    /* HEADER */
+    header {
+      background-color: transparent;
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(217, 204, 186, 0.1);
+    }
+
+    .header-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #D9CCBA;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* SERVICES */
+    .services {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 6rem 1.5rem;
+    }
+
+    .services h2 {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      font-family: 'Georgia', serif;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background-color: rgba(217, 204, 186, 0.05);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(217, 204, 186, 0.1);
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #C9A961;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: rgba(26, 58, 42, 0.5);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(217, 204, 186, 0.1);
+      margin-top: 4rem;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: #C9A961;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <div class="logo">Enny's</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#footer">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Enny's Lounge & Grow Store</h1>
+    <p>Alles für deine Eigenversorgung — ehrlich, diskret, zuverlässig.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <h2>Unsere Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Headshop</h3>
+        <p>Hochwertiges Zubehör für Raucher — vom Grinder bis zur Premium-Pfeife.</p>
+      </div>
+      <div class="service-card">
+        <h3>Growshop</h3>
+        <p>Komplette Ausrüstung für deinen Anbau — Beleuchtung, Dünger, Seeds und mehr.</p>
+      </div>
+      <div class="service-card">
+        <h3>Abo-Service</h3>
+        <p>Verbrauchsmaterial zuverlässig geliefert — alle 8, 12 oder 16 Wochen, jederzeit pausierbar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <p>&copy; 2026 Enny's. Alle Rechte vorbehalten.</p>
+  </footer>
+
 </body>
 </html>
