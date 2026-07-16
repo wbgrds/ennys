@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enny's Lounge & Grow Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      background-color: #1a3a2a;
+      color: #D9CCBA;
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: transparent;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(217, 204, 186, 0.1);
+    }
+
+    .header-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .logo:hover {
+      opacity: 1;
+    }
+
+    .logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      color: #4B5A3C;
+    }
+
+    .logo-text p {
+      font-size: 0.7rem;
+      color: #6D4E2E;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: #D9CCBA;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #C9A961;
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+      background-image: url('header-bg.svg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 4rem;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 58, 42, 0.7);
+      z-index: 1;
+    }
+
+    .hero-text,
+    .hero-logo {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h2 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #C9A961;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-text p {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+      color: #D9CCBA;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background-color: #C9A961;
+      color: #1a3a2a;
+      box-shadow: 0 4px 12px rgba(201, 169, 97, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 169, 97, 0.4);
+    }
+
+    .btn-secondary {
+      border: 2px solid #D9CCBA;
+      color: #D9CCBA;
+      background-color: transparent;
+    }
+
+    .btn-secondary:hover {
+      background-color: #D9CCBA;
+      color: #1a3a2a;
+    }
+
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo-card {
+      background-color: #D9CCBA;
+      padding: 2rem;
+      border-radius: 1rem;
+      text-align: center;
+      width: 280px;
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .logo-card h2 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      color: #4B5A3C;
+    }
+
+    .logo-card p {
+      font-size: 0.75rem;
+      color: #6D4E2E;
+      font-weight: 600;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      border-top: 1px solid rgba(217, 204, 186, 0.3);
+      padding-top: 4rem;
+      margin-top: 4rem;
+    }
+
+    .value-item {
+      text-align: center;
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .value-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #C9A961;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .value-desc {
+      font-size: 0.875rem;
+      color: #D9CCBA;
+    }
+
+    footer {
+      background-color: rgba(26, 58, 42, 0.5);
+      padding: 4rem 1.5rem;
+      margin-top: 6rem;
+      text-align: center;
+      border-top: 1px solid rgba(217, 204, 186, 0.1);
+    }
+
+    footer p {
+      color: #C9A961;
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .values {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .logo-card {
+        width: 200px;
+        height: 200px;
+      }
+
+      .logo-card img {
+        width: 150px;
+        height: 150px;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="Enny's Logo">
+        <div class="logo-text">
+          <h1>Enny's</h1>
+          <p>LOUNGE & GROW STORE</p>
+        </div>
+      </a>
+      <nav>
+        <a href="#sortiment">Sortiment</a>
+        <a href="#rezepte">Rezepte</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <h2>EIGENVERSORGUNG · HEADSHOP & GROWSHOP</h2>
+        <h1>Anbauen, wie du es willst.</h1>
+        <p>Kurierte Bundles, Anbau-Rezepte in einem Klick und Verbrauchsmaterial im Abo. Ehrlich bepreist, diskret versendet — vom ersten Indoor bis zum Profi-Setup.</p>
+        <div class="cta-buttons">
+          <button class="btn btn-primary">Sortiment ansehen</button>
+          <button class="btn btn-secondary">Anbau-Rezepte</button>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <div class="logo-card">
+          <img src="logo.png" alt="Husky Logo">
+          <h2>Enny's</h2>
+          <p>LOUNGE & GROW STORE</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="value-item">
+        <div class="value-icon">✓</div>
+        <div class="value-title">Loyalität</div>
+        <div class="value-desc">Dauerhaft fair bepreist</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌿</div>
+        <div class="value-title">Natur</div>
+        <div class="value-desc">Nachhaltig & organisch</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🔓</div>
+        <div class="value-title">Freiheit</div>
+        <div class="value-desc">Selbstbestimmtes Wachstum</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-title">Ehrlichkeit</div>
+        <div class="value-desc">Transparente Kommunikation</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌍</div>
+        <div class="value-title">Souveränität</div>
+        <div class="value-desc">Eigenversorgung fördern</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Enny's Lounge & Grow Store. Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
