@@ -51,10 +51,35 @@
 
     /* HERO */
     .hero {
-      max-width: 1280px;
-      margin: 0 auto;
+      min-height: 50vh;
       padding: 6rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      background-image: url('header-bg.svg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 58, 42, 0.65);
+      z-index: 1;
+    }
+
+    .hero h1,
+    .hero p {
+      position: relative;
+      z-index: 2;
     }
 
     .hero h1 {
@@ -67,8 +92,6 @@
       font-size: 1.1rem;
       margin-bottom: 2rem;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     /* SERVICES */
@@ -126,6 +149,10 @@
     @media (max-width: 768px) {
       nav {
         gap: 1rem;
+      }
+
+      .hero {
+        min-height: 40vh;
       }
 
       .hero h1 {
